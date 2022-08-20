@@ -215,6 +215,10 @@
       <Project>{13323a2a-00a2-4ba5-96c3-38683ad36673}</Project>
       <Name>StackOverFlow.Repositories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StackOverFlow.ViewModels\StackOverFlow.ViewModels.csproj">
+      <Project>{b0a9de0d-24cf-4703-a7ca-08670a2bad0b}</Project>
+      <Name>StackOverFlow.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
