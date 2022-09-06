@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackOverFlow.DAL", "..\Sta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackOverFlow.Repositories", "..\StackOverFlow.Repositories\StackOverFlow.Repositories.csproj", "{13323A2A-00A2-4BA5-96C3-38683AD36673}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackOverFlow.BAL", "..\StackOverFlow.BAL\StackOverFlow.BAL.csproj", "{76963683-35B9-4701-AB2A-954EAD0E896B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackOverFlow.ServiceLayer", "..\StackOverFlow.ServiceLayer\StackOverFlow.ServiceLayer.csproj", "{8CF88535-87AA-4427-9FDD-F27B1812EB84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackOverFlow.ViewModels", "..\StackOverFlow.ViewModels\StackOverFlow.ViewModels.csproj", "{B0A9DE0D-24CF-4703-A7CA-08670A2BAD0B}"
@@ -33,10 +31,6 @@ Global
 		{13323A2A-00A2-4BA5-96C3-38683AD36673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13323A2A-00A2-4BA5-96C3-38683AD36673}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13323A2A-00A2-4BA5-96C3-38683AD36673}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76963683-35B9-4701-AB2A-954EAD0E896B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76963683-35B9-4701-AB2A-954EAD0E896B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76963683-35B9-4701-AB2A-954EAD0E896B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76963683-35B9-4701-AB2A-954EAD0E896B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8CF88535-87AA-4427-9FDD-F27B1812EB84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8CF88535-87AA-4427-9FDD-F27B1812EB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CF88535-87AA-4427-9FDD-F27B1812EB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
