@@ -18,7 +18,8 @@ namespace StackOverFlow
             
             container.RegisterType<IQuestionService, QuestionService>();
             container.RegisterType<IUserService, UserService>();
-
+            container.RegisterType<ICategoryService, CategoryService>();
+            container.RegisterType<IAnswerService, AnswerService>();
             //GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);

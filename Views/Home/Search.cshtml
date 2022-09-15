@@ -1,0 +1,27 @@
+﻿@model List<StackOverFlow.ViewModels.QuestionModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Search results for @ViewBag.str</h3>
+        <table class="table">
+            @foreach (var item in Model)
+            {
+                Html.RenderPartial("Question", item);
+            }
+        </table>
+        @if(Session["CurrentUserName"]!=null)
+            {
+                <a href="/question/create" class="btn btn-primary">Add Question</a>
+            }
+    </div>
+</div>
+
+<script>
+    $("a[href='/allquestions']").attr("id", "active");
+</script>
+
+

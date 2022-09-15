@@ -13,17 +13,17 @@
         <td>
             @if (Session["CurrentUserName"] != null)
             {
-                @Model.User
+                <p>Asked by You</p>
             }
             else
             {
-                <p>You</p>
+            <p>Asked by @Model.User.Name </p>
                 }
         </td>
         <td><span class="badge badge-secondary">@Model.ViewsCount</span>Views</td>
-        <td><span class="badge badge-secondary">@Model.VotesCount</span>Votes</td>
+        @*<td><span class="badge badge-secondary">@Model.VotesCount</span>Votes</td>*@
         <td><span class="badge badge-secondary">@Model.AnswersCount</span>Answers</td>
-        <td>@Model.QuestionDateAndTime</td>
+        <td>On @Model.QuestionDateAndTime</td>
 
     </tr>
 

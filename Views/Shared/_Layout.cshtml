@@ -6,19 +6,23 @@
     <title>@ViewBag.Title - My StackOverFlow</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/site")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
 
-<script type="text/javascript">
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <script type="text/javascript">
     @*$(function () {
         $('a[href="@Url.Action(ViewContext.RouteData.Values)"]').parents("li").addClass("active");
     });*@
 
-</script>
+    </script>
 </head>
 <body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-sm text-light navbar-light">
-            <a class="navbar-brand" href="#">StackOverflow</a>
+        <nav class="navbar navbar-expand-sm text-light navbar-light" style="width: 102%; left: -10px;">
+            <hr class="new4">
+            <a class="navbar-brand" href="#" style="left:5px; ">StackOverflow</a>
 
 
             <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavBar">
@@ -36,6 +40,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/home/contact">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/allquestions">Questions</a>
+                    </li>
 
                     @*If no user has logged in then render login/register pages*@
                     @if (Session["CurrentUserName"] == null)
@@ -50,30 +60,29 @@
 
                     @if (Session["CurrentUserName"] != null)
                     {
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home/categories">Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/allquestions">Questions</a>
-                        </li>
 
-                        <li class="nav-item dropdown">
+
+                        <li class="nav-item dropdown" onclick="myFunction()">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                                <img src="~/Images/user.png" style="width:20px;"  />
+                                <img src="~/Images/user.png" style="width:20px;" />
                                 @Session["CurrentUserName"]
                             </a>
-                            <div class="dropdown-menu bg-info">
+                            <div class="dropdown-menu bg-info" id="myDropdown">
                                 <a class="dropdown-item" href="/account/logout">Logout</a>
                                 <a class="dropdown-item" href="/account/changeprofile">Change Profile</a>
                                 <a class="dropdown-item" href="/account/changepassword">Change Password</a>
                             </div>
                         </li>
+
+                       
+
+
                     }
                 </ul>
             </div>
 
-            <form class="form-inline" action="/home/search">
-                <input type="search" class="form-control mr-sm-2" style="width:150px;" placeholder="Search" name="str">
+            <form class="form-inline" style="display: flex; margin-right: 13px;" action="/home/search">
+                <input type="search" class="form-control me-sm-3" style="width:150px;" placeholder="Search" name="str">
                 <button class="btn btn-success">Search</button>
             </form>
         </nav>
@@ -81,3 +90,8 @@
     </div>
 </body>
 </html>
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+</script>

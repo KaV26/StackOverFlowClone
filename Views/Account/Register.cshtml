@@ -1,75 +1,126 @@
-﻿@model StackOverFlow.ViewModels.RegisterModel
-
-@{
+﻿@{
     ViewBag.Title = "Register";
 }
+<div class="row" style="margin-top: -42px;">
+    <div class="col-sm-12 login-box mx-auto" style="width:600px; text-align:center;">
+        <h1 style=" font-size: 1.8rem; padding-bottom:8px;">Sign Up</h1>
+        <form novalidate="novalidate" action="/account/register" method="post" class="needs-validation" >
+            @Html.AntiForgeryToken()
+            <div class="form-row ">
+                <div class="form-group col-sm-12">
+                    <label for="txtName"><strong>Name</strong> </label>
+                    <input type="text" style=" text-align: center; margin: auto;" class="form-control" id="txtName" placeholder="Enter Name" name="Name" required="required" pattern="^[a-zA-Z ]*$" autofocus="autofocus" />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter name [alphabets only].
+                    </div>
+                </div>
+            </div>
 
-<!DOCTYPE html>
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label for="txtEmail"><strong>Email</strong></label>
+                    <input type="email" style=" text-align: center; margin: auto;" class="form-control" id="txtEmail" placeholder="Enter Mail Id" name="Email" required="required" />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid email
+                    </div>
+                    <small class="email-exist text-danger"></small>
+                </div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Register</title>
-</head>
-<body>
-    @using (Html.BeginForm()) 
-    {
-        @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>RegisterModel</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                <div class="form-group col-sm-12">
+                    <label for="txtMobile"><strong>Mobile</strong></label>
+                    <input type="text"style=" text-align: center; margin: auto;" class="form-control" id="txtMobile" placeholder="Enter Mobile Number" name="Mobile" required="required" pattern="^[789]\d{9}$" />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid mobile Number.
+                    </div>
                 </div>
             </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            <div class="form-row" style="padding-bottom:10px;">
+                <div class="form-group col-sm-12">
+                    <label for="txtPassword"><strong>Password</strong></label>
+                    <input type="password"style=" text-align: center; margin: auto;" class="form-control" id="txtPassword" placeholder="Enter Password" name="Password" required="required" minlength="6" oninput="form.ConfirmPassword.pattern = escapeRegExp(this.value)" onclick="stringlength(document.form1.text1,6,35)" ; />
+                    <!--this password pattern will be set as the pattern for confirm password-->
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Password must contain at least 6 characters.
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-12">
+                    <label for="txtPassword"> <strong>Confirm Password</strong></label>
+                    <input type="password" style=" text-align: center; margin: auto;" class="form-control" id="txtConfirmPassword" placeholder="Confirm Password" name="ConfirmPassword" required="required" />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Password and Confirm Password do not match.
+                    </div>
                 </div>
             </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+
+            <button type="submit" style=" text-align: center; margin: auto;" class="btn btn-primary">Register</button>
+        </form>
     </div>
-</body>
-</html>
+</div>
+
+<script>
+    //to highlight the active nav tab
+    //$("a[href='/account/register']").attr("id", "active");
+
+    $(document).on("submit", ".needs-validation", validate);
+    $(".needs-validation input").blur(validate);
+    function validate(event) {
+        if ($(".needs-validation")[0].checkValidity() == false || $(".email-exist").text() != "") {
+            event.preventDefault();
+        }
+        $(".needs-validation")[0].classList.add("was-validated");
+    }
+
+    function escapeRegExp(str) {
+        return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+    }
+    function stringlength(inputtxt, minlength, maxlength) {
+        var field = inputtxt.value;
+        var mnlen = minlength;
+        var mxlen = maxlength;
+
+        if (field.length < mnlen || field.length > mxlen) {
+            alert("Password length must be between " + mnlen + " and " + mxlen + " characters");
+            return false;
+        }
+
+    }
+
+    $("#txtEmail").blur(function () {
+        $.ajax({
+            url: "/api/account?email=" + $("#txtEmail").val(), type: "GET", success:
+                function (response) {
+                    if (response == "Not Found") {
+                        $(".email-exist").text("");
+                        $(".email-exist").parent(".form-group").find(".valid-feedback").css("color", "#28a745");
+                    }
+                    else {
+                        $(".email-exist").text("Email already registered");
+                        $(".email-exist").parent(".form-group").find(".valid-feedback").css("color", "white");
+                    }
+                },
+            error: function () {
+                $(".email-exist").text("Error");
+            }
+        });
+    });
+</script>
+
+
+

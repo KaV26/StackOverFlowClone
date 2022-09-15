@@ -9,9 +9,14 @@ namespace StackOverFlow
 {
     public class RouteConfig
     {
+        //Attribute Routing 
+        
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapMvcAttributeRoutes();
+
 
             routes.MapRoute(
                 name: "Default",
